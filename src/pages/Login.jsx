@@ -5,6 +5,9 @@ import "./login.css";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 
+const testUserName = "testUser";
+const testPassword = "abc123";
+
 function Login() {
   const navigate = useNavigate();
   const [userName, setUserName] = useState("");
@@ -16,13 +19,19 @@ function Login() {
     let hasErrors = false;
     setUserNameErr("");
     setUserNameErr("");
-    if (userName === "") {
+    if (userName.trim() === "") {
       hasErrors = true;
       setUserNameErr("Please Enter User Name");
-    }
-    if (password === "") {
+    } else if (userName.trim() !== testUserName) {
       hasErrors = true;
-      setPasswordErr("Please Enter User Name");
+      setUserNameErr("Invalid User Name");
+    }
+    if (password.trim() === "") {
+      hasErrors = true;
+      setPasswordErr("Please Enter Passowrd");
+    }else if (password.trim() !== testPassword){
+        hasErrors = true;
+        setPasswordErr("Invalid Password"); 
     }
     if (!hasErrors) {
       setPassword("");
