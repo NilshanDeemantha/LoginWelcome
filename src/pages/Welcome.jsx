@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import "./welcome.css";
 import TextField from "@mui/material/TextField";
 
-export function Welcome() {
+const Welcome = () => {
   const location = useLocation();
   const userName = location.state;
 
@@ -29,4 +29,6 @@ export function Welcome() {
       </div>
     </div>
   );
-}
+};
+
+export default Welcome;
