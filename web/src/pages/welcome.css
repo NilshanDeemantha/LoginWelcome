@@ -1,0 +1,10 @@
+.welcome-container {
+  margin-top: 50px;
+  width: 500px;
+  height: 400px;
+  background-color: #efefef;
+  border-radius: 20px;
+  text-align: center;
+  padding: 10px;
+}
+
