@@ -64,8 +64,8 @@ const Login = () => {
         <h1>Login</h1>
         <div className="inputs">
           <TextField
-            error={userNameErr}
-            id="outlined-error-helper-text"
+            error={!!userNameErr}
+            className="outlined-error-helper-text"
             label="Enter username"
             helperText={userNameErr}
             size="small"
@@ -73,8 +73,8 @@ const Login = () => {
             onChange={(e) => setUserName(e.target.value)}
           />
           <TextField
-            error={passwordErr}
-            id="outlined-error-helper-text"
+            error={!!passwordErr}
+            className="outlined-error-helper-text"
             label="Enter passowrd"
             type="password"
             helperText={passwordErr}
