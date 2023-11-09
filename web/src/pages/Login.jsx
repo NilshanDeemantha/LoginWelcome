@@ -8,7 +8,7 @@ import Button from "@mui/material/Button";
 const testUserName = "testUser";
 const testPassword = "abc123";
 
-function Login() {
+const Login = () => {
   const navigate = useNavigate();
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
@@ -18,20 +18,20 @@ function Login() {
   function handleLogin() {
     let hasErrors = false;
     setUserNameErr("");
-    setUserNameErr("");
-    if (userName.trim() === "") {
+    setPasswordErr("");
+    if (!userName.trim()) {
       hasErrors = true;
       setUserNameErr("Please Enter User Name");
     } else if (userName.trim() !== testUserName) {
       hasErrors = true;
       setUserNameErr("Invalid User Name");
     }
-    if (password.trim() === "") {
+    if (!password.trim()) {
       hasErrors = true;
       setPasswordErr("Please Enter Passowrd");
-    }else if (password.trim() !== testPassword){
-        hasErrors = true;
-        setPasswordErr("Invalid Password"); 
+    } else if (password.trim() !== testPassword) {
+      hasErrors = true;
+      setPasswordErr("Invalid Password");
     }
     if (!hasErrors) {
       setPassword("");
@@ -49,20 +49,20 @@ function Login() {
         <h1>Login</h1>
         <div className="inputs">
           <TextField
-            error={userNameErr !== "" && true}
+            error={userNameErr}
             id="outlined-error-helper-text"
             label="Enter username"
-            helperText={userNameErr !== "" && userNameErr}
+            helperText={userNameErr}
             size="small"
             value={userName}
             onChange={(e) => setUserName(e.target.value)}
           />
           <TextField
-            error={passwordErr !== "" && true}
+            error={passwordErr}
             id="outlined-error-helper-text"
             label="Enter passowrd"
             type="password"
-            helperText={passwordErr !== "" && passwordErr}
+            helperText={passwordErr}
             size="small"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -74,6 +74,6 @@ function Login() {
       </div>
     </div>
   );
-}
+};
 
 export default Login;
