@@ -22,13 +22,16 @@ const Login = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:4000/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ userName, password }),
-      });
+      const response = await fetch(
+        "https://us-central1-login-welcome-df927.cloudfunctions.net/app/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ userName, password }),
+        }
+      );
       if (response.status === 200) {
         setPassword("");
         setUserName("");
